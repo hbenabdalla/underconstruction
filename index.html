@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | Khorafi Business Machines (W.L.L.)</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #1f2a44;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        img.logo {
+            width: 400px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #0a3d8f; /* Matches logo blue */
+        }
+
+        p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+
+        .loader {
+            border: 6px solid rgba(0,0,0,0.1);
+            border-left-color: #0a3d8f;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            margin: 0 auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="site/Logo-khorafi-blue.png" class="logo" alt="KBM Logo" />
+
+        <h1>We're Launching Soon</h1>
+        <p>Our new website is currently under development. Stay tuned for updates.</p>
+
+        <div class="loader"></div>
+    </div>
+</body>
+</html>

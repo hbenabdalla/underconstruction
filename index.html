@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KBM Kuwait — IBM Software Solutions</title>
+<meta name="description" content="KBM Kuwait is IBM's Platinum Partner in the GCC — delivering Agentic AI, governed data, intelligent asset management, automation, integration, modernization and quantum-safe security.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2312336F%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23FFFFFF%22 font-family=%22sans-serif%22 font-weight=%22800%22>K</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Reusable icon defs (referenced via <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+
+  <symbol id="ic-mark" viewBox="0 0 40 40">
+    <path d="M30.6 9.4 A15 15 0 1 1 20 5" stroke-linecap="butt"/>
+    <path d="M15 20 H25 M20.5 15 L25 20 L20.5 25"/>
+  </symbol>
+
+  <symbol id="ic-arrow-diag" viewBox="0 0 24 24">
+    <line x1="7" y1="17" x2="17" y2="7"/><polyline points="8,7 17,7 17,16"/>
+  </symbol>
+
+  <symbol id="ic-chevron" viewBox="0 0 24 24">
+    <path d="M8 4 L18 12 L8 20"/>
+  </symbol>
+
+  <symbol id="ic-ai" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="2.3"/><circle cx="4.5" cy="5.5" r="1.6"/><circle cx="19.5" cy="5.5" r="1.6"/><circle cx="12" cy="20.5" r="1.6"/>
+    <line x1="10.3" y1="10.5" x2="5.8" y2="6.8"/><line x1="13.7" y1="10.5" x2="18.2" y2="6.8"/><line x1="12" y1="14.3" x2="12" y2="18.9"/>
+  </symbol>
+
+  <symbol id="ic-governance" viewBox="0 0 24 24">
+    <path d="M12 2.5 L19.5 5.3 V11 C19.5 15.8 16.3 19.6 12 21.5 C7.7 19.6 4.5 15.8 4.5 11 V5.3 Z"/>
+    <path d="M8.3 12 L10.7 14.4 L15.7 9"/>
+  </symbol>
+
+  <symbol id="ic-assets" viewBox="0 0 24 24">
+    <path d="M4 15.5 A8 8 0 1 1 20 15.5"/><line x1="12" y1="15.5" x2="16" y2="9.5"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/>
+  </symbol>
+
+  <symbol id="ic-automation" viewBox="0 0 24 24">
+    <path d="M4.5 12a7.5 7.5 0 0 1 12.6-5.4"/><path d="M19.5 12a7.5 7.5 0 0 1-12.6 5.4"/>
+    <path d="M17.6 3.8 v3.6 h-3.6"/><path d="M6.4 20.2 v-3.6 h3.6"/>
+  </symbol>
+
+  <symbol id="ic-integration" viewBox="0 0 24 24">
+    <circle cx="4" cy="12" r="1.9"/><circle cx="12" cy="5.5" r="1.9"/><circle cx="12" cy="18.5" r="1.9"/><circle cx="20" cy="12" r="1.9"/>
+    <line x1="5.7" y1="11" x2="10.3" y2="6.7"/><line x1="5.7" y1="13" x2="10.3" y2="17.3"/><line x1="13.7" y1="6.7" x2="18.3" y2="11"/><line x1="13.7" y1="17.3" x2="18.3" y2="13"/>
+  </symbol>
+
+  <symbol id="ic-modernization" viewBox="0 0 24 24">
+    <path d="M12 3 L21 8 L12 13 L3 8 Z"/><path d="M3 12.2 L12 17.2 L21 12.2"/><path d="M3 16.4 L12 21.4 L21 16.4"/>
+  </symbol>
+
+  <symbol id="ic-quantum" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+    <ellipse cx="12" cy="12" rx="9.2" ry="3.6"/>
+    <ellipse cx="12" cy="12" rx="9.2" ry="3.6" transform="rotate(60 12 12)"/>
+    <ellipse cx="12" cy="12" rx="9.2" ry="3.6" transform="rotate(120 12 12)"/>
+  </symbol>
+
+  <symbol id="ic-risk" viewBox="0 0 24 24">
+    <path d="M12 2.5 L19.5 5.3 V11 C19.5 15.8 16.3 19.6 12 21.5 C7.7 19.6 4.5 15.8 4.5 11 V5.3 Z"/>
+    <rect x="9.3" y="11.3" width="5.4" height="4.6" rx="1"/><path d="M10.2 11.3 V9.6 a1.8 1.8 0 0 1 3.6 0 v1.7"/>
+  </symbol>
+
+  <symbol id="ic-leaf" viewBox="0 0 24 24">
+    <path d="M5 19 C5 10.5 12 4.5 19.5 4.5 C19.5 12 13.8 19 5 19 Z"/><path d="M5 19 C9 14.8 13 10.8 19.5 4.5"/>
+  </symbol>
+
+  <symbol id="ic-bank" viewBox="0 0 24 24">
+    <path d="M3 9.5 L12 4 L21 9.5"/><line x1="4" y1="9.5" x2="20" y2="9.5"/>
+    <line x1="5.5" y1="9.5" x2="5.5" y2="18"/><line x1="9.5" y1="9.5" x2="9.5" y2="18"/><line x1="14.5" y1="9.5" x2="14.5" y2="18"/><line x1="18.5" y1="9.5" x2="18.5" y2="18"/>
+    <line x1="3.5" y1="20" x2="20.5" y2="20"/>
+  </symbol>
+
+  <symbol id="ic-exchange" viewBox="0 0 24 24">
+    <polyline points="3,15 8,9 12,12 16,6 21,10"/><polyline points="16,6 21,6 21,10"/>
+  </symbol>
+
+  <symbol id="ic-drop" viewBox="0 0 24 24">
+    <path d="M12 3 C16 8.5 18.5 12 18.5 15 a6.5 6.5 0 0 1-13 0 C5.5 12 8 8.5 12 3Z"/>
+  </symbol>
+
+  <symbol id="ic-bolt" viewBox="0 0 24 24">
+    <polygon points="13,2 4,14 11,14 9,22 20,9 13,9"/>
+  </symbol>
+
+  <symbol id="ic-landmark" viewBox="0 0 24 24">
+    <path d="M12 3 L21 8 H3 Z"/><line x1="5" y1="8" x2="5" y2="18"/><line x1="9.5" y1="8" x2="9.5" y2="18"/><line x1="14.5" y1="8" x2="14.5" y2="18"/><line x1="19" y1="8" x2="19" y2="18"/>
+    <line x1="3" y1="20" x2="21" y2="20"/>
+  </symbol>
+
+</defs>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="assets/kbm-logo-white.png" alt="KBM — Khorafi Business Machines">
+      <span><small>Khorafi Business Machines (W.L.L.)</small></span>
+    </a>
+    <nav class="nav-primary" id="navPrimary">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#sectors">Sectors</a>
+      <a href="#partners">Partners</a>
+      <a href="#why">Why KBM</a>
+      <a href="#contact" class="nav-cta">Start a conversation</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero bg-stripes" id="top">
+  <div class="edge-stripes" aria-hidden="true"><span class="l1"></span><span class="l2"></span><span class="r1"></span><span class="r2"></span><span class="r3"></span><span class="r4"></span></div>
+  <div class="hairlines" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="dot-cluster" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span class="blank"></span>
+    <span></span><span></span><span class="blank"></span><span class="blank"></span>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-tag">KBM Kuwait · IBM Platinum Partner, GCC Region</div>
+    </div>
+
+    <h1 class="hero-headline">
+      Every engagement starts with a <em>business problem</em>, not a product.
+    </h1>
+
+    <div class="hero-bottom">
+      <div class="pull-quote" data-reveal>
+        <svg class="quote-mark" viewBox="0 0 100 60" fill="currentColor"><path d="M10 5 C0 15 0 35 12 45 C18 50 28 48 30 40 C32 32 26 26 18 27 C18 18 24 10 34 5 Z"/><path d="M55 5 C45 15 45 35 57 45 C63 50 73 48 75 40 C77 32 71 26 63 27 C63 18 69 10 79 5 Z"/></svg>
+        <p>Unplanned downtime on a critical asset. Data nobody trusts enough to feed a model. A fraud team drowning in false positives. A core application nobody wants to touch.</p>
+        <div class="pull-quote-foot">
+          <span class="rule-short"></span>
+          <div class="attribution">— KBM Kuwait, IBM Platinum Partner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span class="line"></span> Scroll</div>
+</section>
+
+<!-- ================= TECH MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item"><span class="dot">●</span> watsonx.ai <span class="dot">●</span> Maximo Application Suite <span class="dot">●</span> Red Hat OpenShift <span class="dot">●</span> webMethods.io <span class="dot">●</span> Guardium <span class="dot">●</span> OpenPages <span class="dot">●</span> Confluent <span class="dot">●</span> HashiCorp <span class="dot">●</span> DataStax <span class="dot">●</span> IBM Quantum</span>
+  </div>
+</div>
+
+<!-- ================= MANIFESTO ================= -->
+<section class="manifesto section--line-top">
+  <div class="wrap">
+    <div class="label-col">
+      <div class="eyebrow"><span class="mark"><svg><use href="#ic-mark"/></svg></span> The Context</div>
+    </div>
+    <div>
+      <blockquote>Enterprise AI has moved, in under two years, from experiment to operating model — from chat interfaces to governed agents that take action inside real business processes.</blockquote>
+      <p class="support">
+        That shift has raised the bar on everything beneath it: <strong>data has to be governed and current</strong>,
+        integration has to be real-time, operations have to be automated, and legacy applications have to become
+        reachable. A further shift, quantum computing, is now close enough that the security decisions it forces
+        have to be made today. As IBM's highest-status partner in Kuwait, KBM combines deep local delivery
+        experience with continuous coverage of IBM's fast-evolving portfolio — including its most recent
+        acquisitions, <strong>Confluent, HashiCorp and DataStax</strong> — to help clients modernize, automate and
+        secure every layer of their operations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAPABILITIES ================= -->
+<section class="section section--line-top" id="capabilities">
+  <div class="wrap">
+    <div class="split">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="mark"><svg><use href="#ic-mark"/></svg></span> What we do</div>
+      <h2>Business challenges<br>we solve.</h2>
+      <p class="head-note">Nine solution areas, delivered by one Kuwait-based team. The problems we are asked to solve most often — and how we address each one in practice.</p>
+    </div>
+
+    <div class="split-content">
+    <div class="cap-list" id="capList">
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-ai"/></svg></span><span class="num">01</span></span>
+          <h3>Enterprise AI &amp; Agentic Automation</h3>
+          <span class="stack">watsonx.ai · watsonx.data · watsonx.governance · watsonx Orchestrate · DataStax</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Most organisations no longer lack AI ambition — they lack the foundation to act on it. Pilots multiply without ever reaching production; models are built on data that is stale or unverified; and as teams deploy AI agents, nobody can say with confidence what those agents are doing, or how a decision was reached when a regulator asks.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>We build AI foundations on IBM watsonx: watsonx.ai to build, tune and deploy models; watsonx.data as an open, governed lakehouse; and watsonx.governance to monitor, explain and audit every AI decision against the EU AI Act and NIST AI RMF. watsonx Orchestrate lets clients deploy, govern and scale AI agents from any source under one policy. DataStax adds vector database capability for retrieval-augmented generation — delivered with Arabic-language quality and fully sovereign deployment options.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-governance"/></svg></span><span class="num">02</span></span>
+          <h3>Data Governance &amp; Trusted Data Foundations</h3>
+          <span class="stack">watsonx.data intelligence · MDM / Match 360 · Databand · Guardium</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Ask most organisations where a number in a board report came from, and the honest answer is a chain of spreadsheets and undocumented jobs. Business terms mean different things in different departments, the same customer exists five times under five identifiers, and data quality issues surface only after a decision has already been made. Under Central Bank of Kuwait and CMA expectations, "we think it's right" is no longer defensible.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>We establish data governance as the foundation under AI, not a project beside it. watsonx.data intelligence brings the governance catalogue together with automated lineage and quality controls in one place. IBM MDM with Match 360 resolves duplicate records into a single trusted view. Databand adds observability so pipeline failures are caught before they reach a model, and Guardium secures the data underneath.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-assets"/></svg></span><span class="num">03</span></span>
+          <h3>Intelligent Asset Management</h3>
+          <span class="stack">Maximo Application Suite · Maximo APM · Maximo Health &amp; Predict · TRIRIGA</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Asset-intensive organisations lose money and safety margin to unplanned downtime, maintenance records fragmented across separate EAM, facilities and field-service systems, and teams that react to failures instead of anticipating them. Decades of manuals and work-order history sit unread because nobody has time to mine them.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>We implement IBM Maximo Application Suite to unify EAM, asset performance management, facilities and field service on one Red Hat OpenShift platform — with Maximo Assistant, Condition Insight and AI-driven document extraction built in. KBM is Kuwait's certified MAS implementation partner, with live experience consolidating maintenance across merged national operators.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-automation"/></svg></span><span class="num">04</span></span>
+          <h3>Business Automation &amp; AIOps</h3>
+          <span class="stack">Cloud Pak for Business Automation · IBM Concert · Instana · Turbonomic · HashiCorp</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Two automation gaps usually run in parallel. Manual, paper-heavy processes slow decisions and tie up skilled staff. Meanwhile, growing hybrid IT estates bury teams in alerts from disconnected tools, with signals that never correlate — so effort goes to firefighting rather than reliability.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>Cloud Pak for Business Automation combines RPA, AI-powered decision management and content services on Red Hat OpenShift. For IT operations, IBM Concert delivers agentic AIOps connecting Instana, Turbonomic and SevOne into one shared context. HashiCorp and Red Hat Ansible add infrastructure automation so provisioning and security scale with the environment.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-integration"/></svg></span><span class="num">05</span></span>
+          <h3>Enterprise Integration &amp; Real-Time Data</h3>
+          <span class="stack">webMethods.io · API Connect · MQ · App Connect · Confluent</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Growth by acquisition, legacy core systems and disconnected partner networks leave many organisations with integration sprawl — point-to-point connections that are expensive to maintain and increasingly the reason AI initiatives stall: an agent is only as useful as the systems it can reach.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>Our hybrid iPaaS, built on webMethods.io and StreamSets, brings integration, API management and B2B/EDI connectivity onto one platform. API Connect governs the APIs, MQ and App Connect carry assured messaging, and Confluent adds Kafka event streaming — so dashboards, fraud engines and AI models are never working from stale data.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-modernization"/></svg></span><span class="num">06</span></span>
+          <h3>Application &amp; Platform Modernization</h3>
+          <span class="stack">Red Hat OpenShift · Cloud Pak for Applications · IBM Bob · HashiCorp</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Organisations running workloads across data centres, edge sites and multiple clouds end up managing each separately. Underneath sits the harder problem: core applications in COBOL, RPG or ageing Java that are business-critical, poorly documented, and understood by a shrinking group of people approaching retirement.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>Red Hat OpenShift gives clients a single Kubernetes control plane from edge to cloud, underpinning every IBM solution in this portfolio. Cloud Pak for Applications accelerates modernisation of legacy Java estates without a rewrite. IBM Bob — IBM's AI-native agentic development system — explains, refactors and tests legacy code across COBOL, RPG, Java and Python.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-quantum"/></svg></span><span class="num">07</span></span>
+          <h3>Quantum Computing &amp; Quantum-Safe Security</h3>
+          <span class="stack">IBM Quantum · Qiskit · Guardium Quantum Safe · Cryptography Manager</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Quantum computing has moved from research curiosity to a dated risk on the board agenda. The immediate consequence for Kuwait's banks, energy operators and government entities is not algorithms — it is cryptography. Data captured today under RSA or ECC can be harvested now and decrypted later.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>Near term, we run cryptographic discovery and quantum-safe readiness work using Guardium Quantum Safe — building a cryptographic bill of materials and sequencing migration to NIST post-quantum standards. Longer term, we help clients access IBM Quantum and Qiskit to explore where quantum will matter first for their industry, before it is needed rather than after.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-risk"/></svg></span><span class="num">08</span></span>
+          <h3>Risk, Compliance &amp; Data Security</h3>
+          <span class="stack">IBM OpenPages · IBM Guardium · IBM Safer Payments</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>As AI regulation expands — from the EU AI Act to NIST's AI RMF and emerging Central Bank of Kuwait and CMA expectations — organisations face a widening gap between what regulators expect and what their governance and data-security tools can actually demonstrate.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>IBM OpenPages gives clients one GRC platform spanning operational risk, regulatory compliance, internal audit and model risk. IBM Guardium protects the data underneath with automated classification and monitoring. For payments, IBM Safer Payments gives fraud teams an open, AI-driven platform to build real-time detection models across every channel.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="cap-item" data-reveal>
+        <button class="cap-trigger">
+          <span class="badge-num"><span class="icon-badge icon-badge--sm"><svg><use href="#ic-leaf"/></svg></span><span class="num">09</span></span>
+          <h3>Sustainable Operations</h3>
+          <span class="stack">IBM Envizi · IBM Planning Analytics</span>
+          <span class="plus"></span>
+        </button>
+        <div class="cap-panel"><div class="cap-panel-inner"><div class="cap-body">
+          <div class="col">
+            <div>
+              <h4>The challenge</h4>
+              <p>Sustainability targets are now a board-level and regulatory expectation, but most organisations still collect ESG data manually across dozens of systems and struggle to connect it back to real energy and cost decisions.</p>
+            </div>
+            <div>
+              <h4>How KBM helps</h4>
+              <p>IBM Envizi automates the collection of hundreds of ESG data types with dashboards built for TCFD, GRI and CDP. IBM Planning Analytics connects that picture to energy demand forecasting and cost allocation — a practical link between sustainability and operational decision-making across the GCC.</p>
+            </div>
+          </div>
+        </div></div></div>
+      </div>
+
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STAT STRIP ================= -->
+<div class="stat-strip bg-stripes-deep">
+  <div class="dot-cluster" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span class="blank"></span>
+    <span></span><span></span><span class="blank"></span><span class="blank"></span>
+  </div>
+  <div class="wrap">
+    <div class="stat" data-reveal>
+      <div class="stat-num">Platinum</div>
+      <div class="stat-label">IBM Partner status — highest in Kuwait &amp; the GCC</div>
+    </div>
+    <div class="stat" data-reveal data-reveal-delay="1">
+      <div class="stat-num" data-count="9">0</div>
+      <div class="stat-label">Solution areas, one Kuwait-based delivery team</div>
+    </div>
+    <div class="stat" data-reveal data-reveal-delay="2">
+      <div class="stat-num" data-count="8" data-suffix="+">0</div>
+      <div class="stat-label">Global technology partners represented</div>
+    </div>
+    <div class="stat" data-reveal data-reveal-delay="3">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Arabic–English customer care, Kuwait-first</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SUCCESS STORIES ================= -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="split">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="mark"><svg><use href="#ic-mark"/></svg></span> Selected work</div>
+      <h2>Representative<br>engagements.</h2>
+      <p class="head-note">Across banking, energy and financial market infrastructure in Kuwait and the region. Client names are withheld; details are available under NDA on request.</p>
+    </div>
+
+    <div class="split-content">
+    <div class="story" data-reveal>
+      <div class="story-figure bg-stripes">
+        <div class="rings"></div>
+        <span class="fig-tag">Oil &amp; Gas</span>
+        <span class="icon-badge"><svg><use href="#ic-drop"/></svg></span>
+        <div class="dot-cluster"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="blank"></span></div>
+        <span class="fig-index">01</span>
+      </div>
+      <div class="story-content">
+        <div class="sector">Oil &amp; Gas and Refining · IBM Maximo Application Suite on Red Hat OpenShift</div>
+        <h3>Unifying asset management after a national energy-sector merger</h3>
+        <p>A merger between two national oil and gas operating companies in Kuwait left enterprise asset management split across separate systems — each with its own registers, maintenance strategies and work processes for critical refinery assets.</p>
+        <p>KBM led the design and implementation of a unified Maximo Application Suite environment, consolidating asset registers, maintenance strategies and inventory data onto a single governed platform running on Red Hat OpenShift.</p>
+        <div class="story-outcome">A single source of truth for enterprise assets, standardised maintenance across previously separate operating companies, and a modern platform ready for AI-powered, condition-based maintenance.</div>
+      </div>
+    </div>
+
+    <div class="story" data-reveal>
+      <div class="story-figure bg-stripes">
+        <div class="rings"></div>
+        <span class="fig-tag">Banking</span>
+        <span class="icon-badge"><svg><use href="#ic-ai"/></svg></span>
+        <div class="dot-cluster"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="blank"></span></div>
+        <span class="fig-index">02</span>
+      </div>
+      <div class="story-content">
+        <div class="sector">Banking &amp; Financial Services · IBM watsonx on Red Hat OpenShift, GPU infrastructure</div>
+        <h3>A sovereign, on-premise AI framework for an Islamic banking group</h3>
+        <p>A leading Islamic bank set out to build an enterprise AI capability that could not, for regulatory and data-residency reasons, run on public cloud — a framework for many future use cases, not a single application.</p>
+        <p>KBM leads the architecture and delivery of the bank's AI framework: watsonx.ai, watsonx.data and watsonx.governance on Red Hat OpenShift, with GPU-accelerated nodes and a production/DR topology sized against the bank's real workload profile.</p>
+        <div class="story-outcome">In delivery — non-production established and production build underway, giving the group a governed, fully on-premise foundation for AI it owns and operates itself.</div>
+      </div>
+    </div>
+
+    <div class="story" data-reveal>
+      <div class="story-figure bg-stripes">
+        <div class="rings"></div>
+        <span class="fig-tag">Banking</span>
+        <span class="icon-badge"><svg><use href="#ic-integration"/></svg></span>
+        <div class="dot-cluster"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="blank"></span></div>
+        <span class="fig-index">03</span>
+      </div>
+      <div class="story-content">
+        <div class="sector">Banking &amp; Financial Services · webMethods · API Connect · App Connect · MQ</div>
+        <h3>A group-wide integration backbone across three countries</h3>
+        <p>A banking group operating in Kuwait, Bahrain and Egypt had grown its digital channels faster than the integration layer beneath them — every new digital service was a fresh integration project.</p>
+        <p>KBM designed and delivered a group-level hybrid integration backbone on IBM webMethods, unifying application integration, API management and event-driven patterns under a single governance framework, supported through multi-year managed engagement.</p>
+        <div class="story-outcome">Standardised integration and API governance across three countries, and materially faster time to market for new digital banking services.</div>
+      </div>
+    </div>
+
+    <div class="story" data-reveal>
+      <div class="story-figure bg-stripes">
+        <div class="rings"></div>
+        <span class="fig-tag">Banking</span>
+        <span class="icon-badge"><svg><use href="#ic-modernization"/></svg></span>
+        <div class="dot-cluster"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="blank"></span></div>
+        <span class="fig-index">04</span>
+      </div>
+      <div class="story-content">
+        <div class="sector">Banking &amp; Financial Services · IBM licence consolidation &amp; Enterprise License Agreement</div>
+        <h3>Consolidating a multi-country banking group's IBM estate</h3>
+        <p>The group's IBM install base had accumulated separately across three countries — dozens of contracts, unsynchronised anniversary dates, and no consolidated view of where entitlements were actually deployed.</p>
+        <p>KBM led the consolidation of the group's IBM install base into a harmonised structure and built the case for a group-level Enterprise License Agreement, mapped to IBM's flexible bundles.</p>
+        <div class="story-outcome">Fewer contracts, one group-wide anniversary date, protection from year-over-year support increases, and the ability to add software by amendment before the projects that need it.</div>
+      </div>
+    </div>
+
+    <div class="story" data-reveal>
+      <div class="story-figure bg-stripes">
+        <div class="rings"></div>
+        <span class="fig-tag">Banking</span>
+        <span class="icon-badge"><svg><use href="#ic-risk"/></svg></span>
+        <div class="dot-cluster"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="blank"></span></div>
+        <span class="fig-index">05</span>
+      </div>
+      <div class="story-content">
+        <div class="sector">Banking &amp; Financial Services · IBM Safer Payments</div>
+        <h3>Real-time fraud prevention for a regional bank</h3>
+        <p>A major regional bank needed to modernise real-time fraud detection across card, online and mobile channels — while reducing false positives that were frustrating genuine customers and burdening analysts.</p>
+        <p>KBM implemented IBM Safer Payments, giving the bank's fraud team an open, AI-driven platform to build and deploy detection models in a sandbox, without depending on external vendors for every change.</p>
+        <div class="story-outcome">Faster response to emerging fraud patterns, fewer false positives, and a fraud practice that adapts its own models in near real time.</div>
+      </div>
+    </div>
+
+    <div class="story" data-reveal>
+      <div class="story-figure bg-stripes">
+        <div class="rings"></div>
+        <span class="fig-tag">FMI</span>
+        <span class="icon-badge"><svg><use href="#ic-exchange"/></svg></span>
+        <div class="dot-cluster"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="blank"></span></div>
+        <span class="fig-index">06</span>
+      </div>
+      <div class="story-content">
+        <div class="sector">Financial Market Infrastructure · IBM Instana · Cognos Analytics · warehouse modernisation</div>
+        <h3>Observability and analytics for a market infrastructure operator</h3>
+        <p>A national clearing and post-trade institution runs services where availability is not negotiable and settlement windows are fixed — teams were diagnosing performance reactively, and reporting depended on a warehouse that couldn't keep pace.</p>
+        <p>KBM deployed IBM Instana for full-stack observability across applications and infrastructure, and modernised the analytics layer on IBM Cognos to serve governed reporting from a consolidated warehouse.</p>
+        <div class="story-outcome">Faster fault isolation during critical settlement windows, proactive detection ahead of member impact, and a reporting platform the business can extend itself.</div>
+      </div>
+    </div>
+
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECTORS ================= -->
+<section class="section section--navy bg-stripes" id="sectors">
+  <div class="edge-stripes" aria-hidden="true"><span class="l1"></span><span class="l2"></span><span class="r1"></span><span class="r2"></span><span class="r3"></span><span class="r4"></span></div>
+  <div class="hairlines" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="dot-cluster" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span class="blank"></span>
+    <span></span><span></span><span class="blank"></span><span class="blank"></span>
+  </div>
+  <div class="wrap">
+    <div class="split">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="mark on-navy"><svg><use href="#ic-mark"/></svg></span> Where we deliver</div>
+      <h2>Sectors<br>we serve.</h2>
+      <p class="head-note">Deep delivery experience across the industries that keep Kuwait — and the region — running.</p>
+    </div>
+    <div class="split-content">
+    <div class="sector-list">
+      <div class="sector-row" data-reveal>
+        <span class="icon-badge icon-badge--sm"><svg><use href="#ic-bank"/></svg></span>
+        <h4>Banking &amp; Financial Services</h4>
+        <p>Core banking integration, fraud and financial crime, GRC and operational risk, sovereign AI platforms, and Sharia-compliant institutions.</p>
+      </div>
+      <div class="sector-row" data-reveal>
+        <span class="icon-badge icon-badge--sm"><svg><use href="#ic-exchange"/></svg></span>
+        <h4>Financial Market Infrastructure</h4>
+        <p>Clearing, settlement and exchange operators, and the regulators and market bodies around them.</p>
+      </div>
+      <div class="sector-row" data-reveal>
+        <span class="icon-badge icon-badge--sm"><svg><use href="#ic-drop"/></svg></span>
+        <h4>Oil, Gas &amp; Petrochemicals</h4>
+        <p>Enterprise asset management, reliability and maintenance modernisation, refinery and petrochemical operations.</p>
+      </div>
+      <div class="sector-row" data-reveal>
+        <span class="icon-badge icon-badge--sm"><svg><use href="#ic-bolt"/></svg></span>
+        <h4>Utilities &amp; Energy</h4>
+        <p>Asset performance, outage management, sustainability reporting and ESG data.</p>
+      </div>
+      <div class="sector-row" data-reveal>
+        <span class="icon-badge icon-badge--sm"><svg><use href="#ic-landmark"/></svg></span>
+        <h4>Government &amp; Public Sector</h4>
+        <p>Data governance, citizen-facing service automation, Arabic-language AI and data-residency-constrained platforms.</p>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY PARTNERS ================= -->
+<section class="section section--tight section--line-top" id="partners">
+  <div class="wrap">
+    <div class="split">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="mark"><svg><use href="#ic-mark"/></svg></span> Ecosystem</div>
+      <h2>Technology<br>partners.</h2>
+      <p class="head-note">IBM is the foundation. Around it, a broader ecosystem of global technology partners extends what we can deliver for Kuwait-specific needs.</p>
+    </div>
+
+    <div class="split-content">
+    <div class="partner-grid" data-reveal>
+      <div class="partner-tile"><img class="partner-logo partner-logo--wide" src="assets/partners/ibm.svg" alt="IBM"><small>Platinum Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo" src="assets/partners/redhat.svg" alt="Red Hat"><small>Premier Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo" src="assets/partners/cisco.svg" alt="Cisco"><small>Technology Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo partner-logo--wide" src="assets/partners/microsoft.svg" alt="Microsoft"><small>Technology Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo" src="assets/partners/fortinet.svg" alt="Fortinet"><small>Security Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo" src="assets/partners/nutanix.svg" alt="Nutanix"><small>Infrastructure Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo partner-logo--mark" src="assets/partners/paloalto.svg" alt="Palo Alto Networks"><small>Security Partner</small></div>
+      <div class="partner-tile"><img class="partner-logo partner-logo--mark" src="assets/partners/f5.svg" alt="F5"><small>Application Delivery</small></div>
+    </div>
+    <p class="partner-note">30+ technology partners in total extend the IBM stack for Kuwait-specific requirements — the above represent our core ecosystem.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY PARTNER ================= -->
+<section class="section section--line-top" id="why">
+  <div class="wrap">
+    <div class="split">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="mark"><svg><use href="#ic-mark"/></svg></span> The case for KBM</div>
+      <h2>Why partner<br>with KBM.</h2>
+      <p class="head-note">Eight reasons Kuwait's most regulated, most asset-intensive organisations choose to work with us.</p>
+    </div>
+    <div class="split-content">
+    <div class="reasons">
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-governance"/></svg></span>
+        <h4>IBM Platinum Partner</h4><p>The highest IBM status held in Kuwait and the wider GCC, certified across Maximo/MAS, watsonx, OpenShift, Confluent and HashiCorp.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-ai"/></svg></span>
+        <h4>Ahead of the curve</h4><p>Agentic AI, governed data foundations, quantum-safe cryptography and AI-assisted modernization are practice areas today, not slideware.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-modernization"/></svg></span>
+        <h4>Senior architecture bench</h4><p>Led by IBM-recognised architects, including a 4x IBM Champion, with certified specialists across each solution area.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-assets"/></svg></span>
+        <h4>Proven in oil, gas &amp; energy</h4><p>Live IBM MAS deployment experience and deep understanding of Kuwait's refinery, energy and utility operations.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-risk"/></svg></span>
+        <h4>Trusted in regulated banking</h4><p>Sovereign AI platforms, group-wide integration backbones and real-time fraud prevention delivered for Kuwaiti and regional institutions.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-automation"/></svg></span>
+        <h4>End-to-end delivery</h4><p>Discovery, design thinking, implementation, managed services, licensing strategy and training — owned by one team.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-integration"/></svg></span>
+        <h4>A broader innovation ecosystem</h4><p>30+ technology partners extending IBM capabilities for Kuwait-specific needs.</p>
+      </div>
+      <div class="reason" data-reveal>
+        <span class="arrow-corner"><svg><use href="#ic-arrow-diag"/></svg></span>
+        <span class="icon-badge"><svg><use href="#ic-leaf"/></svg></span>
+        <h4>Kuwait-first commitment</h4><p>A local delivery team based at Baitak Tower, with Arabic–English support and 24/7 customer care.</p>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW WE WORK ================= -->
+<section class="section section--tight section--line-top">
+  <div class="wrap">
+    <div class="split">
+    <div class="section-head" data-reveal>
+      <div class="eyebrow"><span class="mark"><svg><use href="#ic-mark"/></svg></span> Engagement model</div>
+      <h2>How we work.</h2>
+      <p class="head-note">A four-stage path from first conversation to a platform your team can run.</p>
+    </div>
+    <div class="split-content">
+    <div class="timeline">
+      <div class="timeline-track" aria-hidden="true"></div>
+      <div class="timeline-step" data-reveal>
+        <div class="timeline-node"><span class="timeline-num">01</span><span class="icon-badge"><svg><use href="#ic-mark"/></svg></span></div>
+        <h4>Discovery Workshop</h4><p>A one-day session mapping your priorities to specific IBM solutions.</p>
+      </div>
+      <div class="timeline-step" data-reveal data-reveal-delay="1">
+        <div class="timeline-node"><span class="timeline-num">02</span><span class="icon-badge"><svg><use href="#ic-ai"/></svg></span></div>
+        <h4>Design Thinking PoC</h4><p>A rapid, no-risk proof of concept on your highest-value use case, using your own data in your own environment.</p>
+      </div>
+      <div class="timeline-step" data-reveal data-reveal-delay="2">
+        <div class="timeline-node"><span class="timeline-num">03</span><span class="icon-badge"><svg><use href="#ic-exchange"/></svg></span></div>
+        <h4>Business Case &amp; Roadmap</h4><p>An ROI-backed business case and phased implementation roadmap, co-developed with KBM architects.</p>
+      </div>
+      <div class="timeline-step" data-reveal data-reveal-delay="3">
+        <div class="timeline-node"><span class="timeline-num">04</span><span class="icon-badge"><svg><use href="#ic-governance"/></svg></span></div>
+        <h4>Delivery &amp; Enablement</h4><p>Implementation with your team alongside ours, followed by certification, managed services and licensing built for what's next.</p>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / CTA ================= -->
+<section class="cta bg-stripes-deep" id="contact">
+  <div class="edge-stripes" aria-hidden="true"><span class="l1"></span><span class="l2"></span><span class="r1"></span><span class="r2"></span><span class="r3"></span><span class="r4"></span></div>
+  <div class="hairlines" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="dot-cluster" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span class="blank"></span>
+    <span></span><span></span><span class="blank"></span><span class="blank"></span>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:1.6rem;" data-reveal><span class="mark on-navy"><svg><use href="#ic-mark"/></svg></span> Get in touch</div>
+    <h2 class="cta-headline" data-reveal>Let's solve the <em>business problem</em> first.</h2>
+    <div class="cta-row">
+      <a href="mailto:info@kbm-kw.com" class="cta-email" data-reveal>
+        info@kbm-kw.com <span class="cta-arrow"><svg><use href="#ic-arrow-diag"/></svg></span>
+      </a>
+      <div class="cta-addr" data-reveal>
+        <strong>KBM Kuwait — IBM Platinum Partner, GCC Region</strong>
+        Burj Alshaya, Al Soor Street, Al Mirqab, 27th Floor<br>
+        P.O. Box 181, Safat 13002, Kuwait<br>
+        www.kbm-kw.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer bg-stripes-deep">
+  <div class="wrap">
+    <span>© <span id="year"></span> Khorafi Business Machines (W.L.L.) · KBM Kuwait</span>
+    <div class="footer-links">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#partners">Partners</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

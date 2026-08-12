@@ -330,6 +330,16 @@ svg{ display:block; }
 .hero .wrap{ position:relative; z-index:2; }
 .hero .dot-cluster{ position:absolute; left:var(--gutter); bottom:3.4rem; z-index:2; }
 .hero .hairlines{ top:29%; }
+.hero-illustration{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  width:100%; height:40%;
+  min-height:220px;
+  object-fit:cover;
+  object-position:bottom;
+  pointer-events:none;
+  z-index:1;
+}
 
 .hero-top{
   display:flex;

@@ -1,0 +1,683 @@
+/* ==========================================================================
+   KBM — IBM Software Solutions · Portfolio Site
+   Design language pulled directly from KBM's own presentation deck:
+   - Colors: deck navy (#1A4796), deep navy (#12336F), stripe navy (#214C99),
+     white, black. No colors outside this set.
+   - Type: Plus Jakarta Sans (the deck's actual typeface).
+   - Motifs: vertical stripe backgrounds, triangular dot clusters, concentric
+     ring badges, circular icon badges with soft glow, the open-ring arrow
+     mark, chevron arrows, thin black rules on white cards.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root{
+  --navy-deep:#12336F;
+  --navy:#1A4796;
+  --navy-stripe:#214C99;
+  --white:#FFFFFF;
+  --black:#0A0A0A;
+
+  /* tints/shades of the above only — no new hues */
+  --navy-08: rgba(26,71,150,0.08);
+  --navy-14: rgba(26,71,150,0.14);
+  --navy-30: rgba(26,71,150,0.30);
+  --on-navy-70: rgba(255,255,255,0.72);
+  --on-navy-50: rgba(255,255,255,0.52);
+  --on-navy-20: rgba(255,255,255,0.18);
+  --ink-70: rgba(10,10,10,0.72);
+  --ink-45: rgba(10,10,10,0.48);
+  --line: rgba(10,10,10,0.12);
+  --line-soft: rgba(10,10,10,0.08);
+  --line-on-navy: rgba(255,255,255,0.22);
+  --line-on-navy-soft: rgba(255,255,255,0.12);
+
+  --sans:'Plus Jakarta Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --container: 1600px;
+  --gutter: clamp(1.5rem, 4vw, 4.5rem);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; font-size:16px; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+}
+
+body{
+  margin:0;
+  background:var(--white);
+  color:var(--black);
+  font-family:var(--sans);
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font-family:inherit; cursor:pointer; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4,p{ margin:0; }
+svg{ display:block; }
+
+.wrap{
+  max-width:var(--container);
+  margin:0 auto;
+  padding-left:var(--gutter);
+  padding-right:var(--gutter);
+}
+
+/* ==========================================================================
+   Deck motif: solid navy panel — the deck backgrounds are unicolor except
+   for a handful of faint accent stripes clustered at the two edges. No
+   pattern runs across the body of the panel.
+   ========================================================================== */
+.bg-stripes{ background-color:var(--navy); }
+.bg-stripes-deep{ background-color:var(--navy-deep); }
+
+/* ==========================================================================
+   Deck motif: edge stripes — 2 faint vertical bands at the left edge, 4 at
+   the right edge (measured off the deck's own title-slide background),
+   each a different width/opacity. Nothing in between.
+   ========================================================================== */
+.edge-stripes{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.edge-stripes span{ position:absolute; top:0; bottom:0; background:var(--white); }
+.edge-stripes .l1{ left:0;      width:5.7%; opacity:0.05; }
+.edge-stripes .l2{ left:6.4%;   width:2.3%; opacity:0.03; }
+.edge-stripes .r1{ right:26.1%; width:7.4%; opacity:0.03; }
+.edge-stripes .r2{ right:21.7%; width:3.3%; opacity:0.018; }
+.edge-stripes .r3{ right:7.3%;  width:8.4%; opacity:0.037; }
+.edge-stripes .r4{ right:0;     width:5.9%; opacity:0.03; }
+
+/* Deck motif: thin vertical rule near the right edge of full-bleed navy sections */
+.rule-right{
+  position:absolute;
+  top:0; bottom:0; right:9%;
+  width:1px;
+  background:var(--line-on-navy-soft);
+  pointer-events:none;
+}
+
+/* ==========================================================================
+   Deck motif: triangular dot cluster
+   ========================================================================== */
+.dot-cluster{
+  display:grid;
+  grid-template-columns:repeat(4, 10px);
+  grid-auto-rows:10px;
+  gap:10px;
+  pointer-events:none;
+}
+.dot-cluster span{
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--white);
+}
+.dot-cluster.on-light span{ background:var(--navy); }
+/* triangular fade: opacity decreases left→right, and later rows drop columns */
+.dot-cluster span:nth-child(4n+1){ opacity:0.55; }
+.dot-cluster span:nth-child(4n+2){ opacity:0.34; }
+.dot-cluster span:nth-child(4n+3){ opacity:0.20; }
+.dot-cluster span:nth-child(4n){ opacity:0.10; }
+.dot-cluster span.blank{ background:transparent; }
+
+/* ==========================================================================
+   Deck motif: concentric rings
+   ========================================================================== */
+.rings{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid var(--line-on-navy-soft);
+  pointer-events:none;
+}
+.rings::before,
+.rings::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  border:1px solid var(--line-on-navy-soft);
+  inset:14%;
+}
+.rings::after{ inset:30%; }
+
+/* ==========================================================================
+   Deck motif: the hairline cluster (recurring background rule seen on the
+   deck's title and quote slides) — 3 thin lines spanning the full width,
+   plus one bolder line spanning only part of the width.
+   ========================================================================== */
+.hairlines{
+  position:absolute;
+  left:0; right:0;
+  pointer-events:none;
+}
+.hairlines span{ display:block; height:12px; background:rgba(255,255,255,0.057); }
+.hairlines span:nth-child(2){ height:6px; margin-top:4px; background:rgba(255,255,255,0.03); }
+.hairlines span:nth-child(3){ height:8px; margin-top:84px; background:rgba(255,255,255,0.037); }
+
+/* ==========================================================================
+   Deck motif: pull-quote (slide 6) — big quote mark, bold statement,
+   dot cluster, short rule, italic attribution
+   ========================================================================== */
+.pull-quote{ max-width:56ch; }
+.quote-mark{ width:4.6rem; height:auto; color:var(--white); opacity:0.4; margin-bottom:1rem; }
+.pull-quote p{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:clamp(1.3rem, 2.3vw, 1.7rem);
+  line-height:1.45;
+  color:var(--white);
+  letter-spacing:-0.005em;
+}
+.pull-quote .dot-cluster{ margin-top:2rem; margin-bottom:1.2rem; position:static; }
+.pull-quote-foot{ margin-top:1.8rem; }
+.pull-quote .rule-short{ display:block; width:70px; height:1px; background:var(--line-on-navy); margin-bottom:1rem; }
+.pull-quote .attribution{ font-style:italic; font-size:0.94rem; color:var(--on-navy-70); font-weight:400; }
+
+/* ==========================================================================
+   Deck motif: the open-ring arrow mark (from the deck's section-title icon)
+   ========================================================================== */
+.mark{
+  width:2.6rem; height:2.6rem;
+  flex-shrink:0;
+  color:var(--navy);
+}
+.mark.on-navy{ color:var(--white); }
+.mark svg{ width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+
+.arrow-corner svg,
+.cta-arrow svg{ width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.cta-arrow{ width:1.1rem; height:1.1rem; color:var(--white); }
+
+.eyebrow{
+  font-size:0.82rem;
+  font-weight:600;
+  letter-spacing:0.02em;
+  color:var(--navy);
+  display:flex;
+  align-items:center;
+  gap:0.65em;
+  text-transform:uppercase;
+}
+.section--navy .eyebrow{ color:var(--white); }
+.eyebrow .mark{ width:1.9rem; height:1.9rem; }
+
+/* ==========================================================================
+   Deck motif: chevron row (>>>)
+   ========================================================================== */
+.chevron-row{ display:flex; align-items:center; gap:2px; color:var(--white); }
+.chevron-row.on-light{ color:var(--navy); }
+.chevron-row svg{ width:1.1rem; height:1.4rem; }
+
+/* ==========================================================================
+   Icon badge — circular, navy fill, white glyph, soft outer glow (deck slide 3)
+   ========================================================================== */
+.icon-badge{
+  width:3.6rem; height:3.6rem;
+  border-radius:50%;
+  background:var(--navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 0 8px var(--navy-08), 0 8px 20px -6px var(--navy-30);
+  flex-shrink:0;
+}
+.icon-badge svg{ width:1.7rem; height:1.7rem; color:var(--white); stroke:var(--white); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.icon-badge--sm{ width:2.7rem; height:2.7rem; }
+.icon-badge--sm svg{ width:1.3rem; height:1.3rem; }
+
+/* ==========================================================================
+   Reveal-on-scroll
+   ========================================================================== */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+[data-reveal].is-visible{ opacity:1; transform:translateY(0); }
+[data-reveal="fade"]{ transform:none; }
+[data-reveal-delay="1"]{ transition-delay:0.08s; }
+[data-reveal-delay="2"]{ transition-delay:0.16s; }
+[data-reveal-delay="3"]{ transition-delay:0.24s; }
+[data-reveal-delay="4"]{ transition-delay:0.32s; }
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  padding:1.3rem 0;
+  background:transparent;
+  transition:background 0.5s var(--ease), padding 0.4s var(--ease), border-color 0.4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.site-header.is-scrolled{
+  background:var(--navy-deep);
+  padding:0.85rem 0;
+  border-bottom:1px solid var(--line-on-navy-soft);
+}
+.site-header .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+}
+.brand{ display:flex; align-items:center; gap:0.8rem; }
+.brand img{ height:54px; width:auto; transition:height 0.4s var(--ease); }
+.site-header.is-scrolled .brand img{ height:32px; }
+.brand small{
+  display:block;
+  font-size:0.66rem;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--on-navy-70);
+  margin-top:2px;
+}
+
+.nav-primary{ display:flex; align-items:center; gap:2.3rem; }
+.nav-primary a{
+  font-size:0.9rem;
+  font-weight:500;
+  color:var(--white);
+  opacity:0.78;
+  position:relative;
+  padding:0.3rem 0;
+  transition:opacity 0.3s var(--ease);
+}
+.nav-primary a::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-2px;
+  height:2px;
+  background:var(--white);
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform 0.4s var(--ease);
+}
+.nav-primary a:hover{ opacity:1; }
+.nav-primary a:hover::after{ transform:scaleX(1); transform-origin:left; }
+
+.nav-cta{ font-weight:600; }
+
+.nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:0; padding:0.4rem; }
+.nav-toggle span{ width:22px; height:2px; background:var(--white); transition:transform 0.3s var(--ease), opacity 0.3s var(--ease); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  color:var(--white);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:8rem;
+  padding-bottom:3rem;
+  overflow:hidden;
+}
+.hero .wrap{ position:relative; z-index:2; }
+.hero .dot-cluster{ position:absolute; left:var(--gutter); bottom:3.4rem; z-index:2; }
+.hero .hairlines{ top:29%; }
+
+.hero-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:2rem;
+  margin-bottom:2.4rem;
+}
+.hero-tag{
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--on-navy-70);
+  max-width:290px;
+  line-height:1.5;
+}
+
+.hero-headline{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:clamp(2.2rem, 5.6vw, 4.6rem);
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  max-width:16ch;
+}
+.hero-headline em{ font-style:normal; color:var(--white); font-weight:800; border-bottom:3px solid var(--white); padding-bottom:0.02em; }
+
+.hero-bottom{
+  margin-top:3rem;
+  padding-top:2rem;
+  border-top:1px solid var(--line-on-navy);
+}
+
+.scroll-cue{
+  position:absolute;
+  left:var(--gutter);
+  bottom:2.2rem;
+  display:flex;
+  align-items:center;
+  gap:0.7rem;
+  font-size:0.76rem;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--on-navy-50);
+  z-index:2;
+}
+.scroll-cue .line{ width:1px; height:34px; background:var(--line-on-navy); position:relative; overflow:hidden; }
+.scroll-cue .line::after{ content:""; position:absolute; top:-100%; left:0; right:0; height:100%; background:var(--white); animation:scrollLine 2.2s var(--ease) infinite; }
+@keyframes scrollLine{ 0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; } }
+
+/* ==========================================================================
+   Section shell
+   ========================================================================== */
+section{ position:relative; }
+.section{ padding:7.5rem 0; }
+.section--tight{ padding:5rem 0; }
+.section--navy{ color:var(--white); }
+.section--line-top{ border-top:1px solid var(--line); }
+.section--navy.section--line-top{ border-top:1px solid var(--line-on-navy-soft); }
+
+/* ==========================================================================
+   Split layout: a sticky section title beside its scrolling content. The
+   title column pins in place while the content column scrolls past, and
+   releases once the content is done — same behaviour as The Context section.
+   ========================================================================== */
+.split{ display:grid; grid-template-columns:0.9fr 1.6fr; gap:4rem; align-items:start; }
+.split-content{ min-width:0; }
+
+.section-head{
+  position:sticky;
+  top:8rem;
+  align-self:start;
+}
+.section-head h2{
+  font-family:var(--sans);
+  font-weight:800;
+  font-size:clamp(2rem, 3.8vw, 3.1rem);
+  line-height:1.08;
+  letter-spacing:-0.02em;
+  margin-top:1rem;
+}
+.section-head .head-note{ margin-top:1.5rem; font-size:1.02rem; line-height:1.6; color:var(--ink-70); font-weight:400; max-width:32ch; }
+.section--navy .section-head .head-note{ color:var(--on-navy-70); }
+
+/* ==========================================================================
+   Manifesto / intro
+   ========================================================================== */
+.manifesto{ padding:8rem 0; }
+.manifesto .wrap{ display:grid; grid-template-columns:0.9fr 1.6fr; gap:4rem; }
+.manifesto .label-col{ position:sticky; top:8rem; align-self:start; }
+.manifesto blockquote{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:clamp(1.5rem, 2.7vw, 2.2rem);
+  line-height:1.42;
+  color:var(--navy-deep);
+  letter-spacing:-0.01em;
+}
+.manifesto blockquote::first-letter{ color:var(--navy); }
+.manifesto .support{ margin-top:2.4rem; font-size:1.05rem; line-height:1.75; color:var(--ink-70); font-weight:400; max-width:62ch; }
+.manifesto .support strong{ color:var(--black); font-weight:700; }
+
+/* ==========================================================================
+   Capabilities accordion
+   ========================================================================== */
+.cap-list{ border-top:1px solid var(--line); }
+.cap-item{ border-bottom:1px solid var(--line); }
+.cap-trigger{
+  width:100%;
+  background:none;
+  border:0;
+  display:grid;
+  grid-template-columns:7.4rem 2.4fr 2.6fr 2.2rem;
+  align-items:center;
+  gap:1.5rem;
+  padding:1.7rem 0;
+  text-align:left;
+  color:var(--black);
+}
+.cap-trigger .badge-num{ display:flex; align-items:center; gap:0.9rem; }
+.cap-trigger .num{ font-size:0.85rem; font-weight:700; color:var(--ink-45); }
+.cap-trigger h3{ font-family:var(--sans); font-weight:700; font-size:1.4rem; letter-spacing:-0.01em; transition:color 0.3s var(--ease); }
+.cap-trigger .stack{ font-size:0.76rem; font-weight:500; letter-spacing:0.01em; color:var(--ink-45); line-height:1.6; }
+.cap-trigger .plus{
+  justify-self:end;
+  width:2.2rem; height:2.2rem;
+  border:1.5px solid var(--line);
+  border-radius:50%;
+  position:relative;
+  flex-shrink:0;
+  transition:background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.cap-trigger .plus::before,.cap-trigger .plus::after{ content:""; position:absolute; top:50%; left:50%; background:var(--black); transition:transform 0.35s var(--ease), background 0.3s var(--ease); }
+.cap-trigger .plus::before{ width:9px; height:1.5px; transform:translate(-50%,-50%); }
+.cap-trigger .plus::after{ width:1.5px; height:9px; transform:translate(-50%,-50%); }
+.cap-item.is-open .cap-trigger .plus{ background:var(--navy); border-color:var(--navy); }
+.cap-item.is-open .cap-trigger .plus::before,.cap-item.is-open .cap-trigger .plus::after{ background:var(--white); }
+.cap-item.is-open .cap-trigger .plus::after{ transform:translate(-50%,-50%) rotate(90deg) scaleY(0); }
+.cap-item:hover .cap-trigger h3{ color:var(--navy); }
+
+.cap-panel{ display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.55s var(--ease); }
+.cap-panel-inner{ overflow:hidden; }
+.cap-item.is-open .cap-panel{ grid-template-rows:1fr; }
+.cap-body{ display:grid; grid-template-columns:7.4rem 2.4fr 2.6fr 2.2rem; gap:1.5rem; padding-bottom:2.4rem; }
+.cap-body .col{ grid-column:2 / span 2; display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+.cap-body h4{ font-size:0.74rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy); margin-bottom:0.7rem; }
+.cap-body p{ font-size:0.96rem; line-height:1.7; color:var(--ink-70); font-weight:400; }
+
+/* ==========================================================================
+   Stat strip
+   ========================================================================== */
+.stat-strip{ position:relative; color:var(--white); padding:3.6rem 0; overflow:hidden; }
+.stat-strip .wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; position:relative; z-index:2; }
+.stat-strip .dot-cluster{
+  position:absolute; left:var(--gutter); top:50%; transform:translateY(-50%);
+  grid-template-columns:repeat(2,6px); grid-auto-rows:6px; gap:6px;
+}
+.stat-strip .dot-cluster span{ width:4px; height:4px; }
+.stat{ border-left:1px solid var(--line-on-navy); padding-left:1.4rem; }
+.stat .stat-num{ font-family:var(--sans); font-weight:800; font-size:clamp(2.1rem,3.2vw,3rem); color:var(--white); line-height:1; }
+.stat .stat-label{ margin-top:0.6rem; font-size:0.78rem; font-weight:500; letter-spacing:0.01em; color:var(--on-navy-70); line-height:1.5; }
+
+/* ==========================================================================
+   Success stories — symbolic illustration panels (no stock photography;
+   custom geometry built from the deck's own dot / ring / chevron motifs)
+   ========================================================================== */
+.story{ display:grid; grid-template-columns:1fr 1fr; gap:5rem; padding:4.5rem 0; border-bottom:1px solid var(--line); align-items:center; }
+.story:first-of-type{ border-top:1px solid var(--line); }
+.story:nth-of-type(even){ direction:rtl; }
+.story:nth-of-type(even) > *{ direction:ltr; }
+
+.story-figure{
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.story-figure .rings{ width:64%; aspect-ratio:1; left:50%; top:50%; transform:translate(-50%,-50%); }
+.story-figure .dot-cluster{ position:absolute; bottom:1.2rem; left:1.2rem; z-index:2; }
+.story-figure .icon-badge{ position:relative; z-index:2; width:7.4rem; height:7.4rem; box-shadow:0 0 0 14px var(--navy-08), 0 8px 20px -6px var(--navy-30); }
+.story-figure .icon-badge svg{ width:3.4rem; height:3.4rem; }
+.story-figure .fig-tag{ position:absolute; top:1.3rem; left:1.3rem; font-size:0.7rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--white); z-index:2; }
+.story-figure .fig-index{ position:absolute; bottom:1.1rem; right:1.3rem; font-family:var(--sans); font-weight:800; font-size:2.1rem; color:var(--line-on-navy); z-index:2; }
+
+.story-content .sector{ font-size:0.74rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--navy); margin-bottom:1rem; }
+.story-content h3{ font-family:var(--sans); font-weight:800; font-size:1.75rem; line-height:1.2; letter-spacing:-0.01em; margin-bottom:1.3rem; }
+.story-content p{ font-size:0.98rem; line-height:1.72; color:var(--ink-70); font-weight:400; margin-bottom:0.9rem; }
+.story-content p strong{ color:var(--black); font-weight:700; }
+.story-outcome{ margin-top:1.6rem; padding-top:1.4rem; border-top:1px solid var(--line-soft); font-size:0.9rem; color:var(--navy-deep); font-weight:700; line-height:1.6; }
+
+/* ==========================================================================
+   Sectors
+   ========================================================================== */
+#sectors .hairlines{ top:24%; }
+#sectors .dot-cluster{ position:absolute; left:var(--gutter); bottom:2.6rem; }
+
+.sector-list{ border-top:1px solid var(--line-on-navy); }
+.sector-row{ display:grid; grid-template-columns:3.4rem 1.4fr 2.6fr; gap:2rem; align-items:center; padding:1.7rem 0; border-bottom:1px solid var(--line-on-navy); transition:padding 0.3s var(--ease); }
+.sector-row:hover{ padding-left:0.8rem; }
+.sector-row .icon-badge{ background:transparent; border:1.5px solid var(--line-on-navy); box-shadow:none; }
+.sector-row .icon-badge svg{ stroke:var(--white); color:var(--white); }
+.sector-row h4{ font-family:var(--sans); font-weight:700; font-size:1.25rem; letter-spacing:-0.01em; }
+.sector-row p{ font-size:0.92rem; line-height:1.6; color:var(--on-navy-70); font-weight:400; }
+
+/* ==========================================================================
+   Why partner — exec-summary card style (deck slide 3): white card, thin
+   black top rule, icon badge overlapping the rule, diagonal arrow corner
+   ========================================================================== */
+.reasons{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.6rem; }
+.reason{
+  position:relative;
+  background:var(--white);
+  border-radius:10px;
+  padding:2.6rem 2rem 2.2rem;
+  box-shadow:0 1px 0 var(--line), 0 18px 40px -28px rgba(10,10,10,0.35);
+}
+.reason::before{ content:""; position:absolute; top:0; left:0; right:0; height:2px; background:#1a4796; border-radius:10px 10px 0 0; }
+.reason .icon-badge{ position:relative; margin-top:-3.4rem; margin-bottom:1.3rem; }
+.reason .arrow-corner{ position:absolute; top:1.6rem; right:1.6rem; width:1.2rem; height:1.2rem; color:var(--navy); }
+.reason h4{ font-family:var(--sans); font-weight:700; font-size:1.15rem; line-height:1.3; margin-bottom:0.7rem; letter-spacing:-0.005em; padding-right:1.6rem; }
+.reason p{ font-size:0.9rem; line-height:1.65; color:var(--ink-70); font-weight:400; }
+
+/* ==========================================================================
+   How we work — timeline
+   ========================================================================== */
+.timeline{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:0 2.5rem; }
+.timeline-track{ position:absolute; top:2.3rem; left:12.5%; right:12.5%; height:2px; background:var(--line); z-index:0; }
+.timeline-step{ position:relative; z-index:1; }
+.timeline-node{ position:relative; width:4.6rem; height:4.6rem; margin-bottom:1.8rem; }
+.timeline-node .icon-badge{ width:4.6rem; height:4.6rem; }
+.timeline-node .icon-badge svg{ width:2.1rem; height:2.1rem; }
+.timeline-num{ position:absolute; top:-2rem; left:0; font-size:0.72rem; font-weight:700; letter-spacing:0.05em; color:var(--ink-45); }
+.timeline-step h4{ font-family:var(--sans); font-weight:700; font-size:1.2rem; line-height:1.28; margin-bottom:0.8rem; letter-spacing:-0.005em; }
+.timeline-step p{ font-size:0.9rem; line-height:1.65; color:var(--ink-70); font-weight:400; }
+
+/* ==========================================================================
+   Technology partners
+   ========================================================================== */
+.partner-note{ font-size:0.85rem; color:var(--ink-45); font-weight:500; margin-top:2.4rem; }
+.partner-grid{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.partner-tile{
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:2.4rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:0.9rem;
+  min-height:130px;
+  transition:background 0.3s var(--ease);
+}
+.partner-tile:hover{ background:var(--navy-08); }
+.partner-logo{ height:2.5rem; width:auto; max-width:90%; object-fit:contain; }
+.partner-logo--mark{ height:3rem; }
+.partner-logo--wide{ height:3.6rem; }
+.partner-tile small{ display:block; font-size:0.62rem; font-weight:600; letter-spacing:0.14em; color:var(--ink-45); text-transform:uppercase; }
+
+/* ==========================================================================
+   Contact / CTA
+   ========================================================================== */
+.cta{ color:var(--white); padding:8rem 0 6rem; position:relative; overflow:hidden; }
+.cta .eyebrow{ color:var(--white); }
+.cta .wrap{ position:relative; z-index:2; }
+.cta .hairlines{ top:22%; }
+.cta .dot-cluster{ position:absolute; left:var(--gutter); bottom:2.6rem; }
+.cta-headline{ font-family:var(--sans); font-weight:800; font-size:clamp(2.2rem, 5.6vw, 4.6rem); line-height:1.04; letter-spacing:-0.02em; max-width:15ch; }
+.cta-headline em{ font-style:normal; border-bottom:4px solid var(--white); padding-bottom:0.02em; }
+.cta-row{ display:grid; grid-template-columns:1.4fr 1fr; gap:4rem; margin-top:3.5rem; align-items:end; }
+.cta-email{ display:inline-flex; align-items:center; gap:1rem; font-size:1.05rem; font-weight:700; color:var(--white); border-bottom:1px solid var(--line-on-navy); padding-bottom:0.8rem; transition:gap 0.3s var(--ease); }
+.cta-email:hover{ gap:1.4rem; }
+.cta-arrow{ width:1.3rem; height:1.3rem; }
+.cta-addr{ font-size:0.92rem; line-height:1.75; color:var(--on-navy-70); font-weight:400; }
+.cta-addr strong{ color:var(--white); font-weight:700; display:block; margin-bottom:0.5rem; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer{ color:var(--on-navy-50); padding:2.4rem 0; border-top:1px solid var(--line-on-navy-soft); }
+.site-footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap; font-size:0.8rem; font-weight:500; }
+.footer-links{ display:flex; gap:1.8rem; }
+.footer-links a{ opacity:0.8; transition:opacity 0.3s var(--ease); }
+.footer-links a:hover{ opacity:1; }
+
+/* ==========================================================================
+   Marquee (tech stack strip)
+   ========================================================================== */
+.marquee{ border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:1.4rem 0; overflow:hidden; white-space:nowrap; background:var(--white); }
+.marquee-track{ display:inline-flex; gap:3.5rem; animation:marquee 32s linear infinite; }
+.marquee:hover .marquee-track{ animation-play-state:paused; }
+@keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.marquee-item{ font-size:0.85rem; font-weight:600; letter-spacing:0.01em; color:var(--ink-45); display:inline-flex; align-items:center; gap:3.5rem; }
+.marquee-item span.dot{ color:var(--navy); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1080px){
+  .split{ grid-template-columns:1fr; gap:1.6rem; }
+  .section-head{ position:static; }
+  .manifesto .wrap{ grid-template-columns:1fr; gap:2rem; }
+  .manifesto .label-col{ position:static; }
+  .cap-trigger, .cap-body{ grid-template-columns:5.2rem 1fr 1.8rem; }
+  .cap-body .col{ grid-column:2 / span 1; grid-template-columns:1fr; gap:1.4rem; }
+  .cap-trigger .stack{ display:none; }
+  .stat-strip .wrap{ grid-template-columns:repeat(2,1fr); row-gap:2.4rem; }
+  .story{ grid-template-columns:1fr; gap:2rem; }
+  .story:nth-of-type(even){ direction:ltr; }
+  .reasons{ grid-template-columns:1fr; }
+  .timeline{ grid-template-columns:1fr; row-gap:2.4rem; }
+  .timeline-track{ top:0; bottom:0; left:2.3rem; right:auto; width:2px; height:auto; }
+  .timeline-step{ display:flex; align-items:flex-start; gap:1.5rem; }
+  .timeline-node{ margin-bottom:0; flex-shrink:0; }
+  .timeline-num{ display:none; }
+  .cta-row{ grid-template-columns:1fr; gap:2rem; }
+  .partner-grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+@media (max-width: 760px){
+  .nav-primary{
+    position:fixed; top:0; right:0; height:100vh; width:min(78vw, 340px);
+    background:var(--navy-deep);
+    flex-direction:column; align-items:flex-start; justify-content:center; gap:1.8rem;
+    padding:2rem 2.4rem;
+    transform:translateX(100%);
+    transition:transform 0.5s var(--ease);
+    z-index:999;
+  }
+  .nav-primary.is-open{ transform:translateX(0); }
+  .nav-primary a{ font-size:1.1rem; opacity:1; }
+  .nav-toggle{ display:flex; }
+  .nav-toggle.is-open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+  .hero{ min-height:auto; padding-top:7rem; padding-bottom:4rem; }
+  .hero .dot-cluster{ display:none; }
+  .hero-top{ flex-direction:column; gap:1.5rem; margin-bottom:2.2rem; }
+  .hero-bottom{ grid-template-columns:1fr; gap:2rem; }
+  .scroll-cue{ display:none; }
+  .section{ padding:4.5rem 0; }
+  .manifesto{ padding:5rem 0; }
+  .sector-row{ grid-template-columns:2.6rem 1fr; }
+  .sector-row p{ grid-column:1 / -1; }
+  .cta-headline{ font-size:2.3rem; }
+  .partner-grid{ grid-template-columns:repeat(2,1fr); }
+}

@@ -1,4 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 480" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+    <filter id="towerGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <style>
+    /* Ambient glowing halo for the Kuwait Towers — independent, desynced cycles.
+       Self-contained so it plays correctly even though this SVG is embedded as an image. */
+    @keyframes towerHalo1{ 0%,100%{ opacity:.14; } 50%{ opacity:.48; } }
+    @keyframes towerHalo2{ 0%,100%{ opacity:.12; } 50%{ opacity:.4; } }
+    @keyframes towerHalo3{ 0%,100%{ opacity:.13; } 50%{ opacity:.44; } }
+    .kt-halo{ filter:url(#towerGlow); }
+    .kt-halo-1{ animation:towerHalo1 2.4s ease-in-out infinite; }
+    .kt-halo-2{ animation:towerHalo2 3s ease-in-out infinite -0.8s; }
+    .kt-halo-3{ animation:towerHalo3 2.7s ease-in-out infinite -1.5s; }
+    @media (prefers-reduced-motion: reduce){
+      .kt-halo-1, .kt-halo-2, .kt-halo-3{ animation:none; opacity:.24; }
+    }
+  </style>
   <!-- water ripple lines -->
   <g stroke="#FFFFFF" fill="none">
     <path d="M0,392 Q400,388 800,392 T1600,390" stroke-width="1" opacity="0.05"/>
@@ -47,15 +66,18 @@
   <g>
     <!-- thin spire tower -->
     <line x1="1230" y1="362" x2="1230" y2="150" stroke="#FFFFFF" stroke-width="2" opacity="0.22"/>
+    <circle class="kt-halo kt-halo-1" cx="1230" cy="146" r="10" fill="#FFFFFF"/>
     <circle cx="1230" cy="146" r="3" fill="#FFFFFF" opacity="0.28"/>
 
     <!-- small-ball tower -->
     <line x1="1310" y1="362" x2="1310" y2="120" stroke="#FFFFFF" stroke-width="2.5" opacity="0.24"/>
+    <circle class="kt-halo kt-halo-2" cx="1310" cy="238" r="27" fill="#FFFFFF"/>
     <circle cx="1310" cy="238" r="20" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.3"/>
     <circle cx="1310" cy="238" r="12" fill="#FFFFFF" opacity="0.12"/>
 
     <!-- main tower, big ball -->
     <line x1="1400" y1="362" x2="1400" y2="96" stroke="#FFFFFF" stroke-width="3" opacity="0.26"/>
+    <circle class="kt-halo kt-halo-3" cx="1400" cy="288" r="43" fill="#FFFFFF"/>
     <circle cx="1400" cy="288" r="34" fill="none" stroke="#FFFFFF" stroke-width="2.2" opacity="0.34"/>
     <circle cx="1400" cy="288" r="21" fill="#FFFFFF" opacity="0.14"/>
   </g>

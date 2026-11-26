@@ -15,6 +15,7 @@
     initAccordion();
     initCountUp();
     initMarquee();
+    initScrollProgress();
   }
 
   /* ---- Footer year ---- */
@@ -99,24 +100,33 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---- Capabilities accordion ---- */
+  /* ---- Capabilities accordion — all nine collapsed by default; only one
+     open at a time; fully keyboard-accessible (native <button> triggers)
+     with aria-expanded / aria-controls / aria-hidden kept in sync. ---- */
   function initAccordion() {
     var list = document.getElementById("capList");
     if (!list) return;
     var items = list.querySelectorAll(".cap-item");
+
+    function setOpen(item, open) {
+      var trigger = item.querySelector(".cap-trigger");
+      var panel = item.querySelector(".cap-panel");
+      item.classList.toggle("is-open", open);
+      if (trigger) trigger.setAttribute("aria-expanded", open ? "true" : "false");
+      if (panel) panel.setAttribute("aria-hidden", open ? "false" : "true");
+    }
 
     items.forEach(function (item) {
       var trigger = item.querySelector(".cap-trigger");
       if (!trigger) return;
       trigger.addEventListener("click", function () {
         var isOpen = item.classList.contains("is-open");
-        items.forEach(function (other) { other.classList.remove("is-open"); });
-        if (!isOpen) item.classList.add("is-open");
+        items.forEach(function (other) { setOpen(other, false); });
+        if (!isOpen) setOpen(item, true);
       });
     });
 
-    // Open the first item by default for an inviting first impression
-    if (items.length) items[0].classList.add("is-open");
+    // All nine start collapsed — no item is opened by default.
   }
 
   /* ---- Count-up numbers in the stat strip ---- */
@@ -164,5 +174,31 @@
     var track = document.getElementById("marqueeTrack");
     if (!track) return;
     track.innerHTML += track.innerHTML;
+  }
+
+  /* ---- Top scroll-progress bar ---- */
+  function initScrollProgress() {
+    var bar = document.getElementById("scrollProgressBar");
+    if (!bar) return;
+    var ticking = false;
+
+    function update() {
+      var doc = document.documentElement;
+      var scrollTop = doc.scrollTop || document.body.scrollTop;
+      var scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
+      var progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+      progress = Math.min(1, Math.max(0, progress));
+      bar.style.transform = "scaleX(" + progress + ")";
+      ticking = false;
+    }
+
+    update();
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    window.addEventListener("resize", update);
   }
 })();

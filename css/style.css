@@ -513,7 +513,7 @@ svg{ display:block; }
 
 .scroll-cue{
   position:absolute;
-  left:var(--gutter);
+  right:var(--gutter);
   bottom:2.2rem;
   display:flex;
   align-items:center;

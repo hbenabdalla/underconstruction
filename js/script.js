@@ -12,6 +12,7 @@
     initMobileNav();
     initSmoothAnchors();
     initScrollReveal();
+    initIllustrationPause();
     initAccordion();
     initCountUp();
     initMarquee();
@@ -98,6 +99,23 @@
     );
 
     items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---- Work illustrations: hold their animations while a panel is
+     off-screen, resume when it comes back. Without IntersectionObserver
+     they simply keep running. ---- */
+  function initIllustrationPause() {
+    var figs = document.querySelectorAll(".story-figure");
+    if (!figs.length || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle("is-paused", !entry.isIntersecting);
+        });
+      },
+      { rootMargin: "120px 0px 120px 0px" }
+    );
+    figs.forEach(function (el) { io.observe(el); });
   }
 
   /* ---- Capabilities accordion — all nine collapsed by default; only one

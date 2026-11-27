@@ -784,8 +784,8 @@ section{ position:relative; }
 
 /* ambient loops */
 .wi-comet, .wi-train{ fill:none; stroke-linecap:round; animation:wiTravel var(--dur,3s) linear var(--d,0s) infinite; }
-.wi-comet{ stroke-dasharray:var(--len,7) 293; stroke-dashoffset:var(--len,7); }
-.wi-train{ stroke-dasharray:3 3 3 3 3 285; stroke-dashoffset:15; --len:15; }
+.wi-comet{ stroke-dasharray:var(--len,7) 2000; stroke-dashoffset:var(--len,7); }
+.wi-train{ stroke-dasharray:3 3 3 3 3 2000; stroke-dashoffset:15; --len:15; }
 @keyframes wiTravel{ from{ stroke-dashoffset:var(--len,7); } to{ stroke-dashoffset:var(--end,-100); } }
 .wi-march{ stroke-dasharray:3 6; animation:wiMarch var(--dur,1.6s) linear infinite; }
 .wi-dash{ stroke-dasharray:2 5; }

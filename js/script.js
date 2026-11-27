@@ -105,7 +105,7 @@
      off-screen, resume when it comes back. Without IntersectionObserver
      they simply keep running. ---- */
   function initIllustrationPause() {
-    var figs = document.querySelectorAll(".story-figure, .cta-visual");
+    var figs = document.querySelectorAll(".story-figure, .cta-visual, .wi-stage");
     if (!figs.length || !("IntersectionObserver" in window)) return;
     var io = new IntersectionObserver(
       function (entries) {

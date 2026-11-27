@@ -773,13 +773,13 @@ section{ position:relative; }
 
 /* entrance (gated on the card's scroll-reveal) */
 .wi-draw{ stroke-dasharray:1; stroke-dashoffset:1; }
-.story.is-visible .wi-draw{ animation:wiDraw var(--t,0.9s) cubic-bezier(.25,.85,.3,1) var(--d,0s) forwards; }
+.is-visible .wi-draw{ animation:wiDraw var(--t,0.9s) cubic-bezier(.25,.85,.3,1) var(--d,0s) forwards; }
 @keyframes wiDraw{ to{ stroke-dashoffset:0; } }
 .wi-pop{ opacity:0; transform:scale(0.6); transform-box:fill-box; transform-origin:center; }
-.story.is-visible .wi-pop{ animation:wiPop 0.7s cubic-bezier(.22,1.25,.36,1) var(--d,0s) forwards; }
+.is-visible .wi-pop{ animation:wiPop 0.7s cubic-bezier(.22,1.25,.36,1) var(--d,0s) forwards; }
 @keyframes wiPop{ 0%{ opacity:0; transform:scale(0.6); } 55%{ opacity:1; } 100%{ opacity:1; transform:scale(1); } }
 .wi-fade{ opacity:0; }
-.story.is-visible .wi-fade{ animation:wiFade 0.9s ease-out var(--d,0s) forwards; }
+.is-visible .wi-fade{ animation:wiFade 0.9s ease-out var(--d,0s) forwards; }
 @keyframes wiFade{ to{ opacity:1; } }
 
 /* ambient loops */
@@ -815,7 +815,7 @@ section{ position:relative; }
 .wi-label{ animation:wiLabel var(--dur,6s) linear var(--d,0s) infinite; }
 @keyframes wiLabel{ 0%,4%{ opacity:0; } 11%,64%{ opacity:1; } 100%{ opacity:0; } }
 
-.story-figure.is-paused .wi-illustration *{ animation-play-state:paused !important; }
+.is-paused .wi-illustration *{ animation-play-state:paused !important; }
 @media (prefers-reduced-motion: reduce){
   .wi-illustration *{ animation:none !important; }
   .wi-draw{ stroke-dashoffset:0; }
@@ -921,7 +921,13 @@ section{ position:relative; }
 .cta .dot-cluster{ position:absolute; left:var(--gutter); bottom:2.6rem; }
 .cta-headline{ font-family:var(--sans); font-weight:800; font-size:clamp(2.2rem, 5.6vw, 4.6rem); line-height:1.04; letter-spacing:-0.02em; max-width:15ch; }
 .cta-headline em{ font-style:normal; border-bottom:4px solid var(--white); padding-bottom:0.02em; }
-.cta-row{ display:grid; grid-template-columns:1.4fr 1fr; gap:4rem; margin-top:3.5rem; align-items:end; }
+.cta-grid{ display:grid; grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr); gap:clamp(2rem,4vw,4.5rem); align-items:center; }
+.cta-grid .cta-headline{ font-size:clamp(2.2rem, 4.5vw, 4.1rem); }
+.cta-row{ display:grid; grid-template-columns:1fr; gap:2.4rem; margin-top:3.2rem; justify-items:start; }
+/* Location scene — an isometric map tile of Al Mirqab with Burj Alshaya
+   rising from it; shares the work-illustration animation system. */
+.cta-visual{ position:relative; aspect-ratio:700/640; width:100%; }
+.cta-visual:hover .wi-glow{ opacity:1; }
 .cta-email{ position:relative; display:inline-flex; align-items:center; gap:1rem; font-size:1.05rem; font-weight:700; color:var(--white); border-bottom:1px solid var(--line-on-navy); padding-bottom:0.8rem; transition:gap 0.3s var(--ease); }
 .cta-email::before{
   content:""; position:absolute; left:-1rem; right:-1rem; top:-0.9rem; bottom:-0.4rem;
@@ -984,6 +990,8 @@ section{ position:relative; }
   .timeline-node{ margin-bottom:0; flex-shrink:0; }
   .timeline-num{ display:none; }
   .cta-row{ grid-template-columns:1fr; gap:2rem; }
+  .cta-grid{ grid-template-columns:1fr; gap:2.5rem; }
+  .cta-visual{ max-width:560px; }
   .partner-grid{ grid-template-columns:repeat(2,1fr); }
 }
 
